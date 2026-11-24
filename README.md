@@ -1,6 +1,6 @@
-# Guru99 Bank (v4) — Manual Testing Project
+# Guru99 Bank (V4) - Manual Testing Project
 
-End-to-end manual testing of the Guru99 Bank v4 demo internet-banking application, executed the way a QA cycle runs in a real company: planning, test design, live execution, defect reporting, traceability and closure reporting (full STLC).
+A manual testing project on the Guru99 Bank V4 demo internet-banking site. I went through the full testing cycle: test plan, test scenarios, test cases, execution, bug reports, traceability matrix and a final summary report.
 
 **Application under test:** https://demo.guru99.com/V4/
 
@@ -9,15 +9,24 @@ End-to-end manual testing of the Guru99 Bank v4 demo internet-banking applicatio
 | File | What it is |
 |---|---|
 | `Test_Plan.md` | Scope, approach, environment, entry/exit criteria, risks |
-| `Guru99_Bank_v4_Test_Cases.xlsx` | Test Scenarios, Test Cases with live execution results, Bug Log, RTM |
-| `Test_Summary_Report.md` | Execution metrics, defect summary, lessons and sign-off |
-| `screenshots/` | Evidence captured during execution (defects and key flows) |
+| `Guru99_Bank_v4_Test_Cases.xlsx` | Test scenarios, test cases with execution results, bug log, RTM, cross-version comparison |
+| `Test_Summary_Report.md` | Execution numbers, defect summary, notes and conclusion |
+| `screenshots/` | Evidence for the defects and key flows |
 
-## What was tested
+## What I tested
 
-All 14 manager-facing modules: Login, New/Edit/Delete Customer, New/Edit/Delete Account, Deposit, Withdrawal, Fund Transfer, Change Password, Balance Enquiry, Mini Statement, Customised Statement and Logout — with positive, negative and boundary-value cases for every input field, plus an end-to-end flow (create customer → open account → deposit → withdraw → transfer → statements).
+All 14 manager modules: Login, New/Edit/Delete Customer, New/Edit/Delete Account, Deposit, Withdrawal, Fund Transfer, Change Password, Balance Enquiry, Mini Statement, Customised Statement and Logout. For each input field I wrote positive, negative and boundary-value cases. I also ran one end-to-end flow: create customer, open account, deposit, withdraw, transfer, check statements.
 
-Every result in this repository was recorded from real execution against the live demo site; no pass/fail or defect was written without observing it.
+I also compared V1, V2 and V3 with V4 on login, branding and available modules.
 
+## Results
 
-Files: Test_Plan.md, Guru99_Bank_v4_Test_Cases.xlsx (scenarios, cases and execution, bug log, RTM, cross-version, summary), Test_Summary_Report.md, Interview_Walkthrough.md, screenshots/.
+- 63 test cases designed, 46 executed (37 passed, 2 failed, 7 blocked), 17 not executed because of the time limit
+- 6 defects logged (1 critical, 2 major, 1 minor, 2 trivial)
+- Main finding: the transaction pages (Deposit, Withdrawal, Balance Enquiry, Mini Statement, Customised Statement) return HTTP 500 for an existing account, so the core banking flow could not be verified
+
+All results come from running the tests on the live demo site. Details are in the Test Summary Report and the bug log sheet.
+
+## Techniques used
+
+Equivalence partitioning, boundary value analysis, negative testing and state transition (account balance before and after transactions).
